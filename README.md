@@ -15,7 +15,7 @@ var simple = TAGSYS({
     }
 })
 
-simple.run('baa')
+console.log( TAGSYS.print(simple, 'baa') )
 ```
 
 or
@@ -28,13 +28,13 @@ var collatz = TAGSYS({
     ,halt: function(w){ return w.length <= 1 }
 
      ,rules: {
-         a: '.,'
-        ,'.': 'a'
-        ,',': 'aaa'
+         a: 'bc'
+        ,b: 'a'
+        ,c: 'aaa'
     }
 })
 
-collatz.run('aaaaaaa')
+console.log( TAGSYS.print(collatz, 'aaaaaaa') )
 ```
 
 
