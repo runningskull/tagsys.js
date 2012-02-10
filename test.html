@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+    <style>
+        body {
+            font-family:    monospace;
+        }
+
+        #out {
+            width:          99%;
+            height:         600px;
+            font-family:    monospace;
+            font-size:      0.875em;
+            overflow-x:     scroll;
+            whitespace:     pre;
+        }
+
+        input {
+            width:          3em;
+            font-family:    monospace;
+        }
+    </style>
+
+    <script src="tagsys.js"></script>
+
+    <script>
+        window._examples = {
+            simple_halting: TAGSYS({
+                 m: 2
+                ,rules: {
+                     a: 'ccbaH'
+                    ,b: 'cca'
+                    ,c: 'cc'
+                }
+            })
+
+            ,collatz: TAGSYS({
+                 _max_depth: 300
+
+                ,m: 2 
+                ,halt: function(w){ return w.length <= 1 }
+
+                 ,rules: {
+                     a: '.,'
+                    ,'.': 'a'
+                    ,',': 'aaa'
+                }
+            })
+        }
+
+        function _onload() {
+            window._outdom = document.getElementById('out')
+        }
+
+        function collatz() {
+            TAGSYS.print(_examples.collatz, Array(+document.getElementById('collatz').value || 15).join('a'), _outdom);
+        }
+
+        function simple_halting() {
+            TAGSYS.print(_examples.simple_halting, 'baa', _outdom)
+        }
+    </script>
+</head>
+
+<body onload="_onload()">
+
+    <div id="pad">
+        <h1>A simple <a href="http://en.wikipedia.org/wiki/Tag_system">tag system</a></h1>
+        <hr />
+
+        <br/><br/>
+
+        <a href="javascript:void(0)" onclick="simple_halting()">Simple Halting</a> |
+        <a href="javascript:void(0)" onclick="collatz()">Collatz</a>
+        ("a" &times; <input id="collatz" value="15" />)
+
+        <br/><br/>
+    </div>
+
+    <textarea id="out" wrap="off"></textarea>
+
+</body>
+</html>
+
