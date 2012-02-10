@@ -42,7 +42,7 @@ window.TAGSYS = function(machine, word) {
 TAGSYS.print = function(machine, word, dom) {
     var ret = '\n'
     ,   m = machine.machine.m
-    ,   pad = Array(m).join(' ')
+    ,   pad = Array(m+1).join(' ')
     ,   out = machine.run(word)
 
     for (var i=0; i<out.length; i++) {
