@@ -63,7 +63,7 @@ tagsys.js exposes one global: `TAGSYS`
 `TAGSYS.print(machine, word, [dom])`
 
   * runs `machine.run(word)` and returns a pretty-printed result
-  * if `dom` is included, will set `dom`'s innerText before returning
+  * if `dom` is included, will set `dom`'s `innerText` before returning
 
 
 
