@@ -4,6 +4,8 @@ Like this: http://en.wikipedia.org/wiki/Tag_system
 tl;dr
 ====
 
+**Open test.html in your browser**
+
 ```js
 var simple = TAGSYS({
      m: 2
