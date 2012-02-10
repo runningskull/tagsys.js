@@ -14,7 +14,7 @@ window.TAGSYS = function(machine, word) {
 
         this.halt = (typeof machine.halt == 'function')
             ? machine.halt
-            : function(w){ return w[0]==(machine.halt||'H')}
+            : function(w){ return w[0]==(machine.halt||'H') }
     }
 
     sys.prototype.run = function(word) {
@@ -23,7 +23,7 @@ window.TAGSYS = function(machine, word) {
         ++this.depth
         this.output.push(word)
 
-        return (this.halt(word)) || (this.depth == this.max_depth)
+        return this.halt(word) || (this.depth == this.max_depth)
             ? this.end()
             : this.run(word.substr(this.machine.m) + this.machine.rules[c])
     }
