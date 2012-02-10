@@ -44,6 +44,7 @@ Full API
 A machine
 ----
 A machine is a simple object w/ these properties:
+
   * `m`: number of characters to delete on each repetition (tag machines are also called "m-tag machines")
   * `rules`: a simple object where each key is a character in the alphabet, and each value is a word to add to the end of the queue
   * `halt` (optional - default: `"H"`): either a string indicating the halt character, or a function whose returning `true` indicates we should halt
@@ -54,11 +55,13 @@ Running/Printing
 tagsys.js exposes one global: `TAGSYS`
 
 `TAGSYS(machine, [word])` 
+
   * if `word` is included, will run the machine and return the output as an array
   * if not, will return an object with one method: `run(word)` which will run the machine against `word`
 
 
 `TAGSYS.print(machine, word, [dom])`
+
   * runs `machine.run(word)` and returns a pretty-printed result
   * if `dom` is included, will set `dom`'s innerText before returning
 
